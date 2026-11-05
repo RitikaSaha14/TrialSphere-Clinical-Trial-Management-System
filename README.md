@@ -27,13 +27,13 @@ TrialSphere is a portfolio project that demonstrates how a clinical research ope
 
 ### Operations dashboard
 
-![TrialSphere dashboard UI preview](docs/screenshots/dashboard.png)
+![TrialSphere dashboard UI preview](Downloads/dashboard.png)
 
 The dashboard concept preview illustrates portfolio KPIs, enrollment progress, study-status distribution, and recently updated studies. The figures and records shown are fictional sample content.
 
 ### Authentication
 
-![TrialSphere login UI preview](docs/screenshots/login.png)
+![TrialSphere login UI preview](Downloads/login.png)
 
 The authentication preview illustrates the sign-in experience and account-creation entry point.
 
