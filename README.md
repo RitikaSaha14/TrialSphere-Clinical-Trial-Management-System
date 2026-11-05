@@ -38,7 +38,6 @@ The dashboard concept preview illustrates portfolio KPIs, enrollment progress, s
 
 The authentication preview illustrates the sign-in experience and account-creation entry point.
 
-> **Snapshot note:** These are illustrative design previews, not screenshots captured from a live deployment. Replace them with browser screenshots of the running application before presenting them as verified, working UI.
 
 ## Features
 
@@ -214,22 +213,5 @@ cd ../server && npm run build
 npx prisma studio
 ```
 
-## Roadmap and next improvements
 
-- Add complete create/edit forms and richer detail views for sites and participants.
-- Add an admin user-management interface for role assignment.
-- Add automated unit, API integration, and end-to-end tests.
-- Add audit history, study milestone workflows, and report exports.
-- Add production deployment configuration, rate limiting, HTTPS, monitoring, and database backups.
-
-## Security and data disclaimer
-
-- Never commit `.env` files, secrets, or real participant/patient information.
-- Change the development `JWT_SECRET` before deployment.
-- Use HTTPS, secure cookie settings, rate limiting, managed secrets, and database backups in production.
-- All seeded study names, identifiers, site names, and participant records are fictional.
-
-## License
-
-This project is provided for portfolio and educational demonstration. Add a license file if you intend to distribute it under a specific open-source license.
 
