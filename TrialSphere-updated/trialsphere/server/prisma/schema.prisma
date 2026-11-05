@@ -1,0 +1,56 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+
+enum UserRole { ADMIN STUDY_COORDINATOR INVESTIGATOR }
+
+model User {
+  id String @id @default(cuid())
+  name String
+  email String @unique
+  passwordHash String
+  role UserRole @default(INVESTIGATOR)
+  createdAt DateTime @default(now())
+}
+
+enum StudyStatus { Recruiting Active Planning Completed On_Hold }
+enum ParticipantStatus { Screening Enrolled Withdrawn Completed }
+model Study {
+  id String @id @default(cuid())
+  protocolCode String @unique
+  title String
+  phase String
+  status StudyStatus @default(Planning)
+  targetEnrollment Int
+  currentEnrollment Int @default(0)
+  startDate DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  participants Participant[]
+  milestones Milestone[]
+}
+model Site {
+  id String @id @default(cuid())
+  name String
+  city String
+  country String
+  status String @default("Active")
+  studyCount Int @default(0)
+  createdAt DateTime @default(now())
+}
+model Participant {
+  id String @id @default(cuid())
+  participantCode String @unique
+  studyId String
+  siteName String
+  status ParticipantStatus @default(Screening)
+  enrolledAt DateTime
+  study Study @relation(fields: [studyId], references: [id], onDelete: Cascade)
+}
+model Milestone {
+  id String @id @default(cuid())
+  studyId String
+  title String
+  dueDate DateTime
+  status String @default("Pending")
+  study Study @relation(fields: [studyId], references: [id], onDelete: Cascade)
+}

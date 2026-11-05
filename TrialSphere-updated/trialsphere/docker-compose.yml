@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: trialsphere-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: trialsphere
+      POSTGRES_PASSWORD: trialsphere_dev
+      POSTGRES_DB: trialsphere
+    ports:
+      - "5432:5432"
+    volumes:
+      - trialsphere_pgdata:/var/lib/postgresql/data
+volumes:
+  trialsphere_pgdata:
